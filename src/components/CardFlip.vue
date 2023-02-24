@@ -54,9 +54,8 @@ export default {
       type: Array,
       default: function () {},
     },
-    rule: {
-      type: [],
-      require,
+    rules: {
+      type: Array,
     },
   },
   data() {
@@ -68,8 +67,8 @@ export default {
   methods: {
     onToggleFlipCard() {
       if (
-        this.$props.rule.length >= 2 &&
-        this.$props.rule[0].index != this.$props.rule[1].index
+        this.$props.rules.length >= 2 &&
+        this.$props.rules[0].index != this.$props.rules[1].index
       )
         return false;
       if (this.isDisabled) return false;

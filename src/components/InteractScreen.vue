@@ -23,7 +23,7 @@
         :imgBackFaceUrl="`images/${card}.png`"
         :card="{ index, value: card }"
         :cardsContext="cardsContext"
-        :rule="rules"
+        :rules="rules"
         @onFlip="checkRule($event)"
       ></card-flip>
     </div>
@@ -67,7 +67,7 @@ export default {
             if (this.count === this.$props.cardsContext.length / 2) {
               setTimeout(() => {
                 this.$emit("onFinish");
-              }, 800);
+              }, 920);
             }
             this.rules = [];
             // reset rules

@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
     <h1>✨ Congratulation 🎉</h1>
-    <p>{{ Math.round((timer - 800) / 1000) }} seconds</p>
+    <p>{{ Math.round((timer - 920) / 1000) }} seconds</p>
     <button @click="onStartAgain">Start Again</button>
   </div>
 </template>
