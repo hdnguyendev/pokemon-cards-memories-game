@@ -54,6 +54,10 @@ export default {
       type: Array,
       default: function () {},
     },
+    rule: {
+      type: [],
+      require,
+    },
   },
   data() {
     return {
@@ -63,9 +67,14 @@ export default {
   },
   methods: {
     onToggleFlipCard() {
+      if (
+        this.$props.rule.length >= 2 &&
+        this.$props.rule[0].index != this.$props.rule[1].index
+      )
+        return false;
       if (this.isDisabled) return false;
       this.isFlipped = !this.isFlipped;
-      if (this.isFlipped) this.$emit("onFlip", this.card);
+      if (!this.isDisabled && this.isFlipped) this.$emit("onFlip", this.card);
     },
     onFlipBackCard() {
       this.isFlipped = false;

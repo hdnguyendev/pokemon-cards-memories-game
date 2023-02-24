@@ -7,6 +7,7 @@
     v-if="statusMatch === 'match'"
     :cardsContext="settings.cardsContext"
     @onFinish="onGetResult()"
+    @onStartAgain="statusMatch = 'default'"
   ></interact-screen>
   <result-screen
     v-if="statusMatch === 'result'"

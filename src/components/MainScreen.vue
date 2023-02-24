@@ -4,7 +4,7 @@
     <h3>Select mode to start game</h3>
     <div class="modes">
       <button @click="onStart(4)">
-        <span>2*2</span>
+        <span>2x2</span>
         <span>Super Easy</span></button
       ><button @click="onStart(16)">
         <span>4x4</span>
