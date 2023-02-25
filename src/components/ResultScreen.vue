@@ -60,4 +60,14 @@ export default {
   background-color: var(--light);
   color: var(--dark);
 }
+
+@media only screen and (max-width: 720px) {
+  .screen h1 {
+    font-size: 3rem;
+  }
+
+  .screen button {
+    padding: 2rem;
+  }
+}
 </style>

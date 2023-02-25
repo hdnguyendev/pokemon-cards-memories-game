@@ -3,12 +3,23 @@
     class="card"
     :class="{ disabled: isDisabled }"
     :style="{
-      height: `${(920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16}px`,
+      height: `${
+        (this.$props.heightScreen - 16 * 4) / Math.sqrt(cardsContext.length) -
+        16
+      }px`,
       width: `${
-        (((920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) / 4
+        (((this.$props.heightScreen - 16 * 4) / Math.sqrt(cardsContext.length) -
+          16) *
+          3) /
+        4
       }px`,
       perspective: `${
-        ((((920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) / 4) * 2
+        ((((this.$props.heightScreen - 16 * 4) /
+          Math.sqrt(cardsContext.length) -
+          16) *
+          4) /
+          4) *
+        2
       }px`,
     }"
   >
@@ -56,6 +67,12 @@ export default {
     },
     rules: {
       type: Array,
+    },
+    widthScreen: {
+      type: Number,
+    },
+    heightScreen: {
+      type: Number,
     },
   },
   data() {
@@ -130,5 +147,7 @@ export default {
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
+}
+@media only screen and (max-width: 720px) {
 }
 </style>

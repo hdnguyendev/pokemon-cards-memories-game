@@ -10,7 +10,9 @@
       class="screen__inner"
       :style="{
         width: `${
-          ((((920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) / 4 +
+          ((((heightScreen - 16 * 4) / Math.sqrt(cardsContext.length) - 16) *
+            3) /
+            4 +
             16) *
           Math.sqrt(cardsContext.length)
         }px`,
@@ -24,6 +26,8 @@
         :card="{ index, value: card }"
         :cardsContext="cardsContext"
         :rules="rules"
+        :widthScreen="widthScreen"
+        :heightScreen="heightScreen"
         @onFlip="checkRule($event)"
       ></card-flip>
     </div>
@@ -47,6 +51,8 @@ export default {
     return {
       rules: [],
       count: 0,
+      widthScreen: window.innerWidth,
+      heightScreen: window.innerHeight,
     };
   },
   methods: {
@@ -127,5 +133,25 @@ export default {
 .screen .btn__back button:hover {
   background-color: var(--light);
   color: var(--dark);
+}
+
+@media only screen and (max-width: 720px) {
+  .screen {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .screen__inner {
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  .screen .btn__back button {
+    position: fixed;
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 10px;
+    z-index: 100;
+  }
 }
 </style>
