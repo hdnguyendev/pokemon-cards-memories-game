@@ -17,4 +17,9 @@
 .copyright a {
   color: #f4dc26;
 }
+@media only screen and (max-width: 720px) {
+  .copyright {
+    font-size: 1rem;
+  }
+}
 </style>

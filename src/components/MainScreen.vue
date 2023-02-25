@@ -91,4 +91,25 @@ export default {
   font-size: 1.25rem;
   margin-top: 0.5rem;
 }
+@media only screen and (max-width: 720px) {
+  .screen {
+    width: 100vw;
+    justify-content: flex-start;
+    padding: 40px;
+  }
+  .screen h1 {
+    font-size: 4rem;
+    text-align: center;
+  }
+  .modes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .modes button {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+  }
+}
 </style>
