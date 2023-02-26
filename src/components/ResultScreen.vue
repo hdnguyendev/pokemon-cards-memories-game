@@ -1,7 +1,8 @@
 <template>
   <div class="screen">
     <h1>✨ Congratulation 🎉</h1>
-    <p>{{ Math.round((timer - 920) / 1000) }} seconds</p>
+    <h3>{{ timer }} seconds</h3>
+    <h3 id="high-score">🥇 Recent highest record: {{ highScore }}s</h3>
     <button @click="onStartAgain">Start Again</button>
   </div>
 </template>
@@ -13,6 +14,15 @@ export default {
       type: Number,
       required: true,
     },
+    level: {
+      type: String,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      highScore: localStorage.getItem(this.$props.level),
+    };
   },
   methods: {
     onStartAgain() {

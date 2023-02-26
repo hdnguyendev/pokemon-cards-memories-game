@@ -4,20 +4,14 @@
     :class="{ disabled: isDisabled }"
     :style="{
       height: `${
-        (this.$props.heightScreen - 16 * 4) / Math.sqrt(cardsContext.length) -
-        16
+        (heightScreen - 16 * 4) / Math.sqrt(cardsContext.length) - 16
       }px`,
       width: `${
-        (((this.$props.heightScreen - 16 * 4) / Math.sqrt(cardsContext.length) -
-          16) *
-          3) /
+        (((heightScreen - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) /
         4
       }px`,
       perspective: `${
-        ((((this.$props.heightScreen - 16 * 4) /
-          Math.sqrt(cardsContext.length) -
-          16) *
-          4) /
+        ((((heightScreen - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 4) /
           4) *
         2
       }px`,

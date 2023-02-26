@@ -8,13 +8,14 @@
     :cardsContext="settings.cardsContext"
     @onFinish="onGetResult()"
     @onStartAgain="statusMatch = 'default'"
-  ></interact-screen>
+  />
   <result-screen
     v-if="statusMatch === 'result'"
+    :level="`level-${settings.totalOfBlocks}`"
     :timer="timer"
     @onStartAgain="statusMatch = 'default'"
-  ></result-screen>
-  <copy-right-screen></copy-right-screen>
+  />
+  <copy-right-screen />
 </template>
 
 <script>
@@ -46,7 +47,14 @@ export default {
     onHandleBeforeStart(config) {
       console.log("running handle before start, ", config);
       this.settings.totalOfBlocks = config.totalOfBlocks;
-
+      if (
+        localStorage.getItem(`level-${this.settings.totalOfBlocks}`) == null
+      ) {
+        localStorage.setItem(
+          `level-${this.settings.totalOfBlocks}`,
+          1000000000
+        );
+      }
       const firstCards = Array.from(
         {
           length: this.settings.totalOfBlocks / 2,
@@ -65,8 +73,18 @@ export default {
     },
     onGetResult() {
       // get timer
-      this.timer = new Date().getTime() - this.settings.startedAt;
+      this.timer =
+        (new Date().getTime() - this.settings.startedAt - 920) / 1000;
 
+      var highScore = localStorage.getItem(
+        `level-${this.settings.totalOfBlocks}`
+      );
+      if (this.timer < highScore) {
+        localStorage.setItem(
+          `level-${this.settings.totalOfBlocks}`,
+          this.timer
+        );
+      }
       this.statusMatch = "result";
     },
   },
